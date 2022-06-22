@@ -2,15 +2,30 @@
 
 LLDB_INIT_FILE="$HOME/.lldbinit"
 SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]:-$0}"; )" &> /dev/null && pwd 2> /dev/null; )";
-LLDB_JUCE_FILE="$SCRIPT_DIR/juce_lldb.py"
-IMPORT_COMMAND="command script import $LLDB_JUCE_FILE"
+IMPORT_COMMAND="command script import"
 
-function replace {
-    echo "$IMPORT_COMMAND" > "$LLDB_INIT_FILE"
+declare -a IMPORT_FILES=("juce_colour"
+                         "juce_component" 
+                         "juce_lldb"
+                         "juce_memory"
+                         "juce_result"
+                         "juce_stringarray"
+                         "juce_stringpairarray"
+                         "juce_time"
+                         "juce_url" 
+                         "juce_uuid"
+                         "juce_var")
+
+function write {
+    for IMPORT_FILE in "${IMPORT_FILES[@]}"
+    do
+        echo "$IMPORT_COMMAND $SCRIPT_DIR/$IMPORT_FILE.py" >> "$LLDB_INIT_FILE"
+    done
 }
 
-function append {
-    echo "$IMPORT_COMMAND" >> "$LLDB_INIT_FILE"
+function replace {
+    rm "$LLDB_INIT_FILE"
+    write
 }
 
 function green {
@@ -37,7 +52,7 @@ then
             green "Replaced"
             ;;
         [aA]) 
-            append
+            write
             green "Appended"
             ;;
         *) 
@@ -47,6 +62,6 @@ then
     esac
 else
     green "Created lldb init file"
-    replace
+    write
 fi 
 
