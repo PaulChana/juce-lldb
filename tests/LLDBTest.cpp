@@ -20,8 +20,10 @@
 
 *******************************************************************************/
 
-#pragma once
-
+#include <JuceHeader.h>
+#include <juce_core/juce_core.h>
+#include <juce_graphics/juce_graphics.h>
+#include <juce_gui_basics/juce_gui_basics.h>
 
 void string ()
 {
@@ -48,7 +50,7 @@ void colour ()
     juce::Colour red = juce::Colours::red;
     juce::Colour green = juce::Colours::green;
     juce::Colour blue = juce::Colours::blue;
-    juce::Colour colour (uint8 (128), uint8 (64), uint8 (75), uint8 (200));
+    juce::Colour colour (uint8_t (128), uint8_t (64), uint8_t (75), uint8_t (200));
 }
 
 void rectangle ()
@@ -99,8 +101,8 @@ void memory ()
 
 void component ()
 {
-    Component component;
-    Component component2;
+    juce::Component component;
+    juce::Component component2;
     juce::TextButton button ("foobar");
 
     component.setBounds (0, 0, 100, 100);
@@ -143,8 +145,8 @@ void result ()
 
 void relativeTime ()
 {
-    RelativeTime emptyTime;
-    RelativeTime relativeTime (50);
+    juce::RelativeTime emptyTime;
+    juce::RelativeTime relativeTime (50);
 }
 
 void time ()

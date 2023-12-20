@@ -1,4 +1,5 @@
 # juce-lldb
+
 LLDB scripts to make juce objects nicer in the debugger
 
 ## Installation
@@ -7,7 +8,7 @@ Run `./install.sh` and follow the prompts to install the script globally
 
 ## Standards
 
-* Code is formatted using [Black](https://pypi.org/project/black/) - [See here for setup details](https://dev.to/adamlombard/how-to-use-the-black-python-code-formatter-in-vscode-3lo0) 
+* Code is formatted using [Black](https://pypi.org/project/black/) - [See here for setup details](https://dev.to/adamlombard/how-to-use-the-black-python-code-formatter-in-vscode-3lo0)
 * Editor of choice is [VSCode](https://code.visualstudio.com)
 * Terminal is zsh
 
@@ -17,7 +18,7 @@ The code is simply divided up by class that is supported. To extend the support,
 
 ## Testing
 
-Hard to test this stuff. In the root of the repository is a Projucer pip. If you load that file it will create a project that lets you see each of the classes in your debugger. If you are extending the code, please add something in here...
+There is a cmake based project located in `tests`. If you run this you can directly see each of the items in lldb itself
 
 ## Contributions
 
